@@ -1,24 +1,23 @@
-package studentinfo;
+package sis.report;
 
 import junit.framework.TestCase;
+import sis.studentinfo.*;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import static sis.report.ReportConstant.NEWLINE;
 
 public class RosterReporterTest extends TestCase {
 
     public void testRosterReport(){
-        CourseSession session = new CourseSession("ENGL", "101", DateUtils.createDate(2003, 1, 6));
+        CourseSession session = CourseSession.create("ENGL", "101", DateUtils.createDate(2003, 1, 6));
         session.enroll(new Student("A"));
         session.enroll(new Student("B"));
 
         String rosterReport=new RosterReporter(session).getReport();
         assertEquals(RosterReporter.ROSTER_REPORTER_HEADER+
-                "A"+RosterReporter.NEWLINE+
-                "B"+RosterReporter.NEWLINE+
+                "A"+NEWLINE+
+                "B"+NEWLINE+
                 RosterReporter.ROSTER_REPORTER_FOOTER+
-                "2"+RosterReporter.NEWLINE,rosterReport);
+                "2"+NEWLINE,rosterReport);
     }
 
 }

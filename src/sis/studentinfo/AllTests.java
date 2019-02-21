@@ -1,8 +1,8 @@
-package studentinfo;
+package sis.studentinfo;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
-import org.junit.Test;
+import sis.report.RosterReporterTest;
 
 
 public class AllTests extends TestCase {
@@ -11,7 +11,6 @@ public class AllTests extends TestCase {
         TestSuite suite = new TestSuite();
         suite.addTestSuite(StudentTest.class);
         suite.addTestSuite(CourseSessionTest.class);
-        suite.addTestSuite(RosterReporterTest.class);
         suite.addTestSuite(DateUtilsTest.class);
         return suite;
     }

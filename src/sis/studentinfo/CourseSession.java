@@ -1,4 +1,4 @@
-package studentinfo;
+package sis.studentinfo;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -6,7 +6,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
- *  provides a representation of a single-semester session of a specified university course.
+ * provides a representation of a single-semester session of a specified university course.
+ *
  * @author lutljs
  */
 public class CourseSession {
@@ -15,11 +16,29 @@ public class CourseSession {
     private String number;
     private ArrayList<Student> students = new ArrayList<>();
     private Date startDate;
+    private static int count = 0;
+    private int numberOfCredits;
 
-    CourseSession(String department, String number, Date startDate) {
+    void setNumberOfCredits(int numberOfCredits){
+        this.numberOfCredits = numberOfCredits;
+    }
+
+    private CourseSession(String department, String number, Date startDate) {
         this.department = department;
         this.number = number;
         this.startDate = startDate;
+    }
+
+    private static void incrementCount() {
+        ++count;
+    }
+
+    static int getCount() {
+        return count;
+    }
+
+    static void resetCount() {
+        count = 0;
     }
 
 
@@ -33,13 +52,15 @@ public class CourseSession {
     }
 
 
-    int getNumberOfStudents() {
+    public int getNumberOfStudents() {
         return students.size();
     }
 
 
-    void enroll(Student student) {
+    public void enroll(Student student) {
+        student.addCredits(numberOfCredits);
         students.add(student);
+
     }
 
 
@@ -60,11 +81,17 @@ public class CourseSession {
     }
 
 
-    public Date getStartDate() {
+    Date getStartDate() {
         return startDate;
     }
 
-    public ArrayList<Student> getAllStudents(){
+    public ArrayList<Student> getAllStudents() {
         return students;
+
+    }
+    //静态工厂方法，用来创建类的实例
+    public static CourseSession create(String department,String number, Date startDate){
+        CourseSession.incrementCount();
+        return new CourseSession(department,number,startDate);
     }
 }
