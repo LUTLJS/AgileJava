@@ -9,6 +9,7 @@ public class CourseSession {
         this.number=number;
         int i=0;
         int ii=0;
+        int iii=0;
     }
     String getDepartment(){
         return department;
