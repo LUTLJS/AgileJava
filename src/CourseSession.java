@@ -7,10 +7,6 @@ public class CourseSession {
     CourseSession(String department,String number){
         this.department=department;
         this.number=number;
-        int i=0;
-        int ii=0;
-        int iii=0;
-        int iiii=0;
     }
     String getDepartment(){
         return department;
