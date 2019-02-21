@@ -8,6 +8,7 @@ public class CourseSession {
         this.department=department;
         this.number=number;
         int i=0;
+        int ii=0;
     }
     String getDepartment(){
         return department;
