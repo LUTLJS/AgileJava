@@ -1,3 +1,5 @@
+package studentinfo;
+
 import java.util.ArrayList;
 
 public class CourseSession {
@@ -20,7 +22,7 @@ public class CourseSession {
     void enroll(Student student){
         students.add(student);
     }
-    ArrayList<Student> getAllStudents(){
-        return students;
+    Student get(int index){
+        return students.get(index);
     }
 }

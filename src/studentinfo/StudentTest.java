@@ -1,11 +1,14 @@
+package studentinfo;
+
+import junit.framework.TestCase;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  *
  */
-public class StudentTest {
+public class StudentTest extends TestCase {
 
     @Test
     public void testCreate() {
