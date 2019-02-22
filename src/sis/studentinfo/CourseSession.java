@@ -1,20 +1,17 @@
 package sis.studentinfo;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  * provides a representation of a single-semester session of a specified university course.
  *
  * @author lutljs
  */
-public class CourseSession {
+public class CourseSession implements Comparable<CourseSession>{
 
     private String department;
     private String number;
-    private ArrayList<Student> students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
     private Date startDate;
     private static int count = 0;
     private int numberOfCredits;
@@ -42,12 +39,12 @@ public class CourseSession {
     }
 
 
-    String getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
 
-    String getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -60,7 +57,6 @@ public class CourseSession {
     public void enroll(Student student) {
         student.addCredits(numberOfCredits);
         students.add(student);
-
     }
 
 
@@ -85,7 +81,7 @@ public class CourseSession {
         return startDate;
     }
 
-    public ArrayList<Student> getAllStudents() {
+    public List<Student> getAllStudents() {
         return students;
 
     }
@@ -93,5 +89,15 @@ public class CourseSession {
     public static CourseSession create(String department,String number, Date startDate){
         CourseSession.incrementCount();
         return new CourseSession(department,number,startDate);
+    }
+
+    @Override
+    public int compareTo(CourseSession that) {
+
+        int compare = this.getDepartment().compareTo(that.getDepartment());
+        if (compare==0){
+            compare = this.getNumber().compareTo(that.getNumber());
+        }
+        return compare;
     }
 }

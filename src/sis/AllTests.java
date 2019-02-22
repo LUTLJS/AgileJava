@@ -2,6 +2,7 @@ package sis;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import sis.report.CourseReportTest;
 
 public class AllTests extends TestCase {
     public static TestSuite suite(){
