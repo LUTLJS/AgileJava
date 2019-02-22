@@ -10,8 +10,22 @@ public class Student {
     private String name;
     private int credits;
     static final int CREDITS_REQUIRED_FOR_FULL_TIME = 12;
-    public enum Grade {A, B, C, D, E, F, G};
-    private GradingStrategy gradingStrategy=new RegularGradingStrategy();
+    public enum Grade {
+        A(4.0),
+        B(3.5),
+        C(3.0),
+        D(2.5),
+        E(2.0),
+        F(1.5);
+        private double points;
+        Grade(double points){
+            this.points=points;
+        }
+        double getPoints(){
+            return points;
+        }
+    };
+    private GradingStrategy gradingStrategy=new BasicGradingStrategy();
 
     public Student(String name) {
         this.name = name;

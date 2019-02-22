@@ -1,9 +1,9 @@
 package sis.studentinfo;
 
-public class HonorsGradingStrategy implements GradingStrategy {
+public class HonorsGradingStrategy extends BasicGradingStrategy {
     @Override
     public double getGradePointsFor(Student.Grade grade) {
-        double points = BasicGradePoints.basicGradePointsFor(grade);
+        double points = super.getGradePointsFor(grade);
         return points > 0 ? ++points : points;
     }
 }

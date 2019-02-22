@@ -12,6 +12,8 @@ public class AllTests extends TestCase {
         suite.addTestSuite(StudentTest.class);
         suite.addTestSuite(CourseSessionTest.class);
         suite.addTestSuite(DateUtilsTest.class);
+        suite.addTestSuite(BasicGradingStrategyTest.class);
+        suite.addTestSuite(HonorsGradingStrategyTest.class);
         return suite;
     }
 }
